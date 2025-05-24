@@ -20,7 +20,6 @@ const mainTL = gsap.timeline({
     end: "+=100%",
     pin: true,
     scrub: 1,
-    anticipatePin: 1 
   }
 });
 
@@ -46,4 +45,4 @@ mainTL
   .to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut"
-  });
+  }, .2);
