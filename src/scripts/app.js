@@ -2,8 +2,15 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/ScrollSmoother";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ScrollSmoother.create({
+  smooth: 1.5,
+  effects: true,
+  smoothTouch: 0.1,
+});
 
 // Créer une timeline principale
 const mainTL = gsap.timeline({
@@ -30,8 +37,8 @@ mainTL
     rotate: 0,
     height: "auto",
     width: "50%",
-    top: "1rem", // Trouver une autre solution pour le top
-    y: 0, // Avant c'était -300 mais ne fonctionne pas sur toutes les hauteurs d'écran
+    y: "2rem",
+    top: "0",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut"
@@ -39,4 +46,4 @@ mainTL
   .to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut"
-  }, 0.2);
+  });

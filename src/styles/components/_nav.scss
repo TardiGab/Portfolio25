@@ -1,3 +1,12 @@
+.header {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -16,9 +25,9 @@
   height: 11.8125rem;
   flex-shrink: 0;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%) rotate(-167.16deg);
+  transform: translate(-50%, -50%) rotate(-167.16deg);
   z-index: 1000;
   &__container {
     display: flex;
