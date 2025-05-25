@@ -40,9 +40,11 @@ mainTL
     top: "0",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
-    ease: "power2.inOut"
+    ease: "power2.inOut",
+    duration: 1, 
+    border: "1px solid rgba(216, 227, 236, 0.5)",
   }, 0)
   .to(".nav__container", {
     opacity: 1,
-    ease: "power2.inOut"
+    ease: "power2.inOut",
   }, .2);

@@ -15,15 +15,14 @@
   height: 100%;
   font-size: 15px;
   padding: 4px;
-  // opacity: 0;
   border-radius: 6.25rem;
-  border: 1px solid var(--Stroke, rgba(216, 227, 236, 0.5));
+  border: 2px solid rgba(216, 227, 236, 0.5);
   background: rgba(216, 227, 236, 0.5);
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25), 
+              inset 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(5px);
-  width: 34.625rem;
-  height: 11.8125rem;
-  flex-shrink: 0;
+  width: 35rem;
+  height: 12rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,8 +59,8 @@
       a {
         text-decoration: none;
         color: white;
-        opacity: 80%;
-        transition: all 0.3s ease;
+        opacity: 60%;
+        transition: all 0.5s ease;
         &:hover {
           opacity: 100%;
         }
@@ -73,13 +72,13 @@
     border-radius: 3.125rem;
     border: 1px solid #35578a;
     background: #0b1530;
-    transition: all 0.5 ease;
-    a {
-      text-decoration: none;
-      color: white;
-    }
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s ease;
     &:hover {
       background: #1f397f;
+      border: 1px solid #111e43;
+      box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
     }
   }
 }
