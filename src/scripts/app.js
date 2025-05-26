@@ -40,6 +40,8 @@ tl.to(".hero__container", {
     width: "50%",
     y: "2rem",
     top: "0",
+    left: "50%",
+    x: "-50%",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
@@ -49,7 +51,7 @@ tl.to(".hero__container", {
   .to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut",
-  }, .2)
+  })
   .to(".hero__h1", {
     opacity: 0,
     duration: 1,
