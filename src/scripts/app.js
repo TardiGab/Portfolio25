@@ -7,30 +7,32 @@ import ScrollSmoother from "gsap/ScrollSmoother";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 ScrollSmoother.create({
-  smooth: 1.5,
+  smooth: 2,
   effects: true,
   smoothTouch: 0.1,
 });
 
 // Créer une timeline principale
-const mainTL = gsap.timeline({
+const tl = gsap.timeline({
   scrollTrigger: {
-    trigger: ".hero",
+    trigger: ".main",
     start: "top top",
-    end: "+=100%",
+    end: "bottom bottom",
     pin: true,
+    pinSpacing: false,
     scrub: 1,
+    stagger: 1,
   }
 });
 
 
-mainTL
-  .to(".hero__container", {
+tl.to(".hero__container", {
     width: "100%",
     height: "100vh",
     marginTop: 0,
     borderRadius: 0,
-    ease: "power2.inOut"
+    ease: "power2.inOut",
+    position: "fixed",
   }, 0)
   .to(".nav", {
     rotate: 0,
@@ -47,4 +49,21 @@ mainTL
   .to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut",
-  }, .2);
+  }, .2)
+  .to(".hero__h1", {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.inOut",
+  })
+  .to(".hero__span", {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.inOut",
+  }, "<")
+  .to(".work__container", {
+    width: "90vw",
+    height: "82vh",
+    y: "-92vh",
+    ease: "power2.inOut",
+    duration: 1,
+  });
