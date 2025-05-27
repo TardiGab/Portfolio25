@@ -29,9 +29,6 @@
   transform: translate(-50%, -50%) rotate(-167.16deg);
   z-index: 1000;
   &__container {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, auto);
