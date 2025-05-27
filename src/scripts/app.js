@@ -3,7 +3,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
-import { Tween } from "gsap/gsap-core";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -26,6 +25,7 @@ const tl = gsap.timeline({
   }
 });
 
+const works = gsap.utils.toArray(".work__cards .work__card");
 
 tl.to(".hero__container", {
     width: "100%",
@@ -67,4 +67,28 @@ tl.to(".hero__container", {
     y: "-92vh",
     ease: "power2.inOut",
     duration: 1,
-  });
+  })
+  // .to(works, {
+  //   xPercent: -25 * (works.length - 1),
+  //   ease: "none",
+  //   // scrollTrigger: {
+  //   //   pin: true,
+  //   // },
+  // })
+  // .to(".about__container", {
+  //   width: "90vw",
+  //   height: "82vh",
+  //   y: "-192vh",
+  //   ease: "power2.inOut",
+  //   duration: 1,
+  // });
+
+gsap.to(works, {
+  xPercent: -100 * (works.length - 1),
+  scrollTrigger: {
+    trigger: ".work__cards",
+    pin: true,
+    markers: true,
+    scrub: 1,
+  }
+})
