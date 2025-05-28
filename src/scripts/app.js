@@ -89,8 +89,8 @@ const burger = document.querySelector(".nav__burger");
 burger.addEventListener("click", () => {
   gsap.to(".nav__mobile", {
     y: 0,
-    ease: "power2.inOut",
-    duration: 0.5,
+    ease: "power4.inOut",
+    duration: 1,
   })
 });
 
