@@ -41,13 +41,31 @@ tl.to(".hero__container", {
     rotate: 0,
     height: "auto",
     width: "50%",
-    y: "2rem",
+    xPercent: -50,
+    y: "2rem",    
+    x: 0,
+    yPercent: 0,
     top: "0",
+    left: "50%",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
     duration: 1, 
     border: "1px solid rgba(216, 227, 236, 0.5)",
+    borderRadius: "4rem",
+    onComplete: () => {
+      mm.add("(max-width: 768px)", () => {
+        gsap.to(".nav", {
+          width: "100%",
+          borderRadius: "0 0 2rem 2rem", // top-left, top-right, bottom-right, bottom-left
+          y: 0,
+          borderTop: "none",
+          borderLeft: "1px solid rgba(216, 227, 236, 0.5)",
+          borderRight: "1px solid rgba(216, 227, 236, 0.5)",
+          borderBottom: "1px solid rgba(216, 227, 236, 0.5)",
+        })
+      })
+    },
   }, 0)
   .to(".nav__container", {
     opacity: 1,
@@ -65,8 +83,8 @@ tl.to(".hero__container", {
   }, "<")
   .to(".work__container", {
     width: "90vw",
-    height: "82vh",
-    y: "-92vh",
+    height: "80vh",
+    y: "-90vh",
     ease: "power2.inOut",
     duration: 1,
   })
@@ -75,3 +93,23 @@ tl.to(".hero__container", {
     ease: "power2.inOut",
     duration: 2,
   })
+
+const burger = document.querySelector(".nav__burger");
+burger.addEventListener("click", () => {
+  gsap.to(".nav__mobile", {
+    y: 0,
+    ease: "power4.inOut",
+    duration: .5,
+  })
+  document.body.style.overflow = "hidden"; // Désactiver le scroll
+});
+
+const closeNav = document.querySelector(".nav__mobile-close");
+closeNav.addEventListener("click", () => {
+  gsap.to(".nav__mobile", {
+    y: "-100%",
+    ease: "power2.inOut",
+    duration: .5,
+  })
+  document.body.style.overflow = "auto"; // Réactiver le scroll
+});
