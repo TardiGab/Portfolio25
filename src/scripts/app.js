@@ -12,62 +12,57 @@ ScrollSmoother.create({
   smoothTouch: 0.1,
 });
 
-// Créer une timeline principale
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".main",
-    start: "top top",
-    end: "bottom bottom",
-    pin: true,
-    pinSpacing: false,
-    scrub: 1,
-    stagger: 1,
-  }
-});
-
 let mm = gsap.matchMedia();
 
-const works = gsap.utils.toArray(".work__cards .work__card");
+// Utilisation de Github Copilot pour l'implémentation de matchMedia dans la timeline (je ne connaissais pas cette manière d'écrire des conditions). La timeline en tant que telle a bien été créée par moi.
 
-tl.to(".hero__container", {
+mm.add({
+  isDesktop: "(min-width: 769px)",
+  isMobile: "(max-width: 768px)",
+}, (context) => {
+  const { isDesktop, isMobile } = context.conditions;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".main",
+      start: "top top",
+      end: "bottom bottom",
+      pin: true,
+      pinSpacing: false,
+      scrub: 1,
+    }
+  });
+
+  tl.to(".hero__container", {
     width: "100%",
     height: "100vh",
     marginTop: 0,
     borderRadius: 0,
     ease: "power2.inOut",
     position: "fixed",
-  }, 0)
-  .to(".nav", {
+  }, 0);
+
+  // Animation pour .nav
+  tl.to(".nav", {
     rotate: 0,
     height: "auto",
-    width: "50%",
-    xPercent: -50,
-    y: "2rem",    
+    width: isDesktop ? "50%" : "100%",
+    xPercent: isDesktop ? -50 : -50,
+    y: isDesktop ? "2rem" : 0, 
     x: 0,
     yPercent: 0,
     top: "0",
-    left: "50%",
+    left: isDesktop ? "50%" : "50%",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
-    duration: 1, 
+    duration: 1,
     border: "1px solid rgba(216, 227, 236, 0.5)",
-    borderRadius: "4rem",
-    onComplete: () => {
-      mm.add("(max-width: 768px)", () => {
-        gsap.to(".nav", {
-          width: "100%",
-          borderRadius: "0 0 2rem 2rem", // top-left, top-right, bottom-right, bottom-left
-          y: 0,
-          borderTop: "none",
-          borderLeft: "1px solid rgba(216, 227, 236, 0.5)",
-          borderRight: "1px solid rgba(216, 227, 236, 0.5)",
-          borderBottom: "1px solid rgba(216, 227, 236, 0.5)",
-        })
-      })
-    },
-  }, 0)
-  .to(".nav__container", {
+    borderRadius: isDesktop ? "4rem" : "0 0 2rem 2rem",
+    borderTop: isMobile ? "none" : "1px solid rgba(216, 227, 236, 0.5)", 
+  }, 0);
+
+  tl.to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut",
   })
@@ -82,17 +77,24 @@ tl.to(".hero__container", {
     ease: "power2.inOut",
   }, "<")
   .to(".work__container", {
-    width: "90vw",
-    height: "80vh",
+    width: isDesktop ? "90vw" : "100%",
+    height: isDesktop ? "80vh" : "90vh",
     y: "-90vh",
     ease: "power2.inOut",
     duration: 1,
+    borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
   })
   .to(".work__cards", {
-    x: "-25vw", // Changer la valeur pour ajuster l'intensité du mouvement
+    x: isDesktop ? "-25vw" : "-300vw",
     ease: "power2.inOut",
     duration: 2,
-  })
+  });
+
+  // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
+  return () => {
+    tl.kill();
+  };
+});
 
 const burger = document.querySelector(".nav__burger");
 burger.addEventListener("click", () => {
@@ -100,8 +102,8 @@ burger.addEventListener("click", () => {
     y: 0,
     ease: "power4.inOut",
     duration: .5,
-  })
-  document.body.style.overflow = "hidden"; // Désactiver le scroll
+  });
+  document.body.style.overflow = "hidden";
 });
 
 const closeNav = document.querySelector(".nav__mobile-close");
@@ -110,6 +112,6 @@ closeNav.addEventListener("click", () => {
     y: "-100%",
     ease: "power2.inOut",
     duration: .5,
-  })
-  document.body.style.overflow = "auto"; // Réactiver le scroll
+  });
+  document.body.style.overflow = "auto";
 });
