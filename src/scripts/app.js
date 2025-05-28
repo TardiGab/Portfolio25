@@ -86,10 +86,18 @@ tl.to(".hero__container", {
   })
 
 const burger = document.querySelector(".nav__burger");
-
 burger.addEventListener("click", () => {
   gsap.to(".nav__mobile", {
     y: 0,
+    ease: "power2.inOut",
+    duration: 0.5,
+  })
+});
+
+const closeNav = document.querySelector(".nav__mobile-close");
+closeNav.addEventListener("click", () => {
+  gsap.to(".nav__mobile", {
+    y: "-100%",
     ease: "power2.inOut",
     duration: 0.5,
   })
