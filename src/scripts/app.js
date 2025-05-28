@@ -33,6 +33,8 @@ mm.add({
     }
   });
 
+  let works = gsap.utils.toArray(".work__cards .work__card");
+
   tl.to(".hero__container", {
     width: "100%",
     height: "100vh",
@@ -84,10 +86,11 @@ mm.add({
     duration: 1,
     borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
   })
-  .to(".work__cards", {
-    x: isDesktop ? "-25vw" : "-300vw",
-    ease: "power2.inOut",
-    duration: isDesktop ? 1 : 5,
+  .to(works, {
+    xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
+    // x: isDesktop ? "-25vw" : "-300vw",
+    // ease: "power2.inOut",
+    // duration: isDesktop ? 1 : 5,
   });
 
   // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
