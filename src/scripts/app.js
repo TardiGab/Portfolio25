@@ -58,6 +58,7 @@ tl.to(".hero__container", {
         gsap.to(".nav", {
           width: "100%",
           borderRadius: "0",
+          y: 0,
         })
       })
     },
