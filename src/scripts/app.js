@@ -41,8 +41,12 @@ tl.to(".hero__container", {
     rotate: 0,
     height: "auto",
     width: "50%",
-    y: "1rem",
+    xPercent: -50,
+    y: "2rem",    
+    x: 0,
+    yPercent: 0,
     top: "0",
+    left: "50%",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
@@ -74,8 +78,8 @@ tl.to(".hero__container", {
   }, "<")
   .to(".work__container", {
     width: "90vw",
-    height: "82vh",
-    y: "-92vh",
+    height: "80vh",
+    y: "-90vh",
     ease: "power2.inOut",
     duration: 1,
   })
