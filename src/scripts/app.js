@@ -80,7 +80,7 @@ mm.add({
   }, "<")
   .to(".work__container", {
     width: isDesktop ? "90vw" : "100%",
-    height: isDesktop ? "80vh" : "90dvh",
+    height: isDesktop ? "85vh" : "90dvh",
     y: "-90vh",
     ease: "power2.inOut",
     duration: 1,
