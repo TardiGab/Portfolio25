@@ -57,8 +57,12 @@ tl.to(".hero__container", {
       mm.add("(max-width: 768px)", () => {
         gsap.to(".nav", {
           width: "100%",
-          borderRadius: "0",
+          borderRadius: "0 0 2rem 2rem", // top-left, top-right, bottom-right, bottom-left
           y: 0,
+          borderTop: "none",
+          borderLeft: "1px solid rgba(216, 227, 236, 0.5)",
+          borderRight: "1px solid rgba(216, 227, 236, 0.5)",
+          borderBottom: "1px solid rgba(216, 227, 236, 0.5)",
         })
       })
     },
