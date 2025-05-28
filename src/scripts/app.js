@@ -41,13 +41,22 @@ tl.to(".hero__container", {
     rotate: 0,
     height: "auto",
     width: "50%",
-    y: "2rem",
+    y: "1rem",
     top: "0",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
     duration: 1, 
     border: "1px solid rgba(216, 227, 236, 0.5)",
+    borderRadius: "4rem",
+    onComplete: () => {
+      mm.add("(max-width: 768px)", () => {
+        gsap.to(".nav", {
+          width: "100%",
+          borderRadius: "0",
+        })
+      })
+    },
   }, 0)
   .to(".nav__container", {
     opacity: 1,
@@ -75,3 +84,13 @@ tl.to(".hero__container", {
     ease: "power2.inOut",
     duration: 2,
   })
+
+const burger = document.querySelector(".nav__burger");
+
+burger.addEventListener("click", () => {
+  gsap.to(".nav__mobile", {
+    y: 0,
+    ease: "power2.inOut",
+    duration: 0.5,
+  })
+});
