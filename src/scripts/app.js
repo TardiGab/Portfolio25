@@ -78,7 +78,7 @@ mm.add({
   }, "<")
   .to(".work__container", {
     width: isDesktop ? "90vw" : "100%",
-    height: isDesktop ? "80vh" : "90vh",
+    height: isDesktop ? "80vh" : "90dvh",
     y: "-90vh",
     ease: "power2.inOut",
     duration: 1,
@@ -87,7 +87,7 @@ mm.add({
   .to(".work__cards", {
     x: isDesktop ? "-25vw" : "-300vw",
     ease: "power2.inOut",
-    duration: 2,
+    duration: isDesktop ? 1 : 5,
   });
 
   // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
