@@ -25,6 +25,8 @@ const tl = gsap.timeline({
   }
 });
 
+let mm = gsap.matchMedia();
+
 const works = gsap.utils.toArray(".work__cards .work__card");
 
 tl.to(".hero__container", {
@@ -68,27 +70,8 @@ tl.to(".hero__container", {
     ease: "power2.inOut",
     duration: 1,
   })
-  // .to(works, {
-  //   xPercent: -25 * (works.length - 1),
-  //   ease: "none",
-  //   // scrollTrigger: {
-  //   //   pin: true,
-  //   // },
-  // })
-  // .to(".about__container", {
-  //   width: "90vw",
-  //   height: "82vh",
-  //   y: "-192vh",
-  //   ease: "power2.inOut",
-  //   duration: 1,
-  // });
-
-gsap.to(works, {
-  xPercent: -100 * (works.length - 1),
-  scrollTrigger: {
-    trigger: ".work__cards",
-    pin: true,
-    markers: true,
-    scrub: 1,
-  }
-})
+  .to(".work__cards", {
+    x: "-25vw", // Changer la valeur pour ajuster l'intensité du mouvement
+    ease: "power2.inOut",
+    duration: 2,
+  })
