@@ -90,8 +90,9 @@ burger.addEventListener("click", () => {
   gsap.to(".nav__mobile", {
     y: 0,
     ease: "power4.inOut",
-    duration: 1,
+    duration: .5,
   })
+  document.body.style.overflow = "hidden"; // Désactiver le scroll
 });
 
 const closeNav = document.querySelector(".nav__mobile-close");
@@ -99,6 +100,7 @@ closeNav.addEventListener("click", () => {
   gsap.to(".nav__mobile", {
     y: "-100%",
     ease: "power2.inOut",
-    duration: 0.5,
+    duration: .5,
   })
+  document.body.style.overflow = "auto"; // Réactiver le scroll
 });
