@@ -132,3 +132,64 @@ closeNav.addEventListener("click", () => {
   });
   document.body.style.overflow = "auto";
 });
+
+fetch("../assets/data/projects.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Projects loaded:", data);
+    if (data && data.projects) { // Vérifiez si data.projects existe
+      displayProjects(data.projects); // Passez le tableau des projets
+    } else {
+      console.error("Error: 'projects' array not found in data", data);
+    }
+  })
+  .catch(error => console.error("Error loading projects:", error));
+
+function displayProjects(projects) {
+  const worksContainer = document.querySelector(".work__cards");
+  worksContainer.innerHTML = ""; // Clear existing content
+  projects.forEach(project => {
+    const card = document.createElement("div");
+    const cardTop = document.createElement("div");
+    const cardBottom = document.createElement("div");
+    const cardTitleContainer = document.createElement("div");
+    const cardTitle = document.createElement("h3");
+    const cardYear = document.createElement("span");
+    const cardLinksContainer = document.createElement("div");
+    const cardLink = document.createElement("a");
+    const cardCaseStudy = document.createElement("a");
+    const cardImage = document.createElement("img");
+    card.className = "work__card";
+    cardTop.className = "work__card--top";
+    cardBottom.className = "work__card--bottom";
+    cardTitleContainer.className = "work__card-title";
+    cardTitle.className = "work__card-h3";
+    cardYear.className = "work__card-year";
+    cardLinksContainer.className = "work__card-links";
+    cardImage.className = "work__card-img";
+
+    cardTitle.textContent = project.name;
+    cardYear.textContent = project.releaseYear;
+
+    cardTitleContainer.appendChild(cardTitle);
+    cardTitleContainer.appendChild(cardYear);
+    cardBottom.appendChild(cardLinksContainer);
+    card.appendChild(cardTop);
+    card.appendChild(cardBottom);
+    worksContainer.appendChild(card);
+    cardTop.appendChild(cardImage);
+    cardTop.appendChild(cardTitleContainer);
+    cardImage.src = project.imageUrl;
+    cardLink.href = project.siteUrl;
+    cardLink.textContent = "Site en ligne";
+    cardCaseStudy.href = project.caseStudyUrl;
+    if (!project.caseStudyUrl) {
+      cardCaseStudy.style.display = "none";
+    }
+    cardCaseStudy.textContent = "Case Study";
+    cardLinksContainer.appendChild(cardLink);
+    cardLinksContainer.appendChild(cardCaseStudy);
+
+
+  })
+}
