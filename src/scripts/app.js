@@ -94,8 +94,6 @@ function initializeGsap() {
       }
     });
 
-    let works = gsap.utils.toArray(".work__cards .work__card");
-
     tl.to(".hero__container", {
       width: "100%",
       height: "100vh",
