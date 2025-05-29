@@ -106,9 +106,9 @@ mm.add({
     ease: "power2.inOut",
     duration: .5,
   })
-  .to(works, {
-    xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
-  });
+  // .to(works, {
+  //   xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
+  // });
 
   // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
   return () => {
