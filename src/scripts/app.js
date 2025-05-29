@@ -17,10 +17,11 @@ let mm = gsap.matchMedia();
 // Utilisation de Github Copilot pour l'implémentation de matchMedia dans la timeline (je ne connaissais pas cette manière d'écrire des conditions). La timeline en tant que telle a bien été créée par moi.
 
 mm.add({
-  isDesktop: "(min-width: 769px)",
+  isDesktop: "(min-width: 1025px)",
+  isTablet: "(min-width: 769px) and (max-width: 1024px)",
   isMobile: "(max-width: 768px)",
 }, (context) => {
-  const { isDesktop, isMobile } = context.conditions;
+  const { isDesktop, isMobile, isTablet } = context.conditions;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -44,23 +45,32 @@ mm.add({
     position: "fixed",
   }, 0);
 
+  let navWidth;
+  if (isDesktop) {
+    navWidth = "50%";
+  } else if (isTablet) {
+    navWidth = "70%";
+  } else {
+    navWidth = "100%";
+  }
+
   // Animation pour .nav
   tl.to(".nav", {
     rotate: 0,
     height: "auto",
-    width: isDesktop ? "50%" : "100%",
-    xPercent: isDesktop ? -50 : -50,
-    y: isDesktop ? "2rem" : 0, 
+    width: navWidth,
+    xPercent: -50,
+    y: isMobile ? 0 : "1rem", 
     x: 0,
     yPercent: 0,
     top: "0",
-    left: isDesktop ? "50%" : "50%",
+    left: "50%",
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
     duration: 1,
     border: "1px solid rgba(216, 227, 236, 0.5)",
-    borderRadius: isDesktop ? "4rem" : "0 0 2rem 2rem",
+    borderRadius: isMobile ? "0 0 2rem 2rem" : "4rem",
     borderTop: isMobile ? "none" : "1px solid rgba(216, 227, 236, 0.5)", 
   }, 0);
 
@@ -85,6 +95,16 @@ mm.add({
     ease: "power2.inOut",
     duration: 1,
     borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
+  })
+  .fromTo(works, {
+    display: "none",
+    opacity: 0,
+  }, {
+    display: "flex",
+    opacity: 1,
+    stagger: 0.1,
+    ease: "power2.inOut",
+    duration: .5,
   })
   .to(works, {
     xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
