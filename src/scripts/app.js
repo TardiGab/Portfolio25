@@ -14,7 +14,7 @@ ScrollSmoother.create({
 
 let mm = gsap.matchMedia();
 
-// Utilisation de Github Copilot pour l'implémentation de matchMedia dans la timeline (je ne connaissais pas cette manière d'écrire des conditions). La timeline en tant que telle a bien été créée par moi.
+// Utilisation de Github Copilot pour l'implémentation de matchMedia dans la timeline (je ne connaissais pas les opérations ternaires). La timeline en tant que telle a bien été créée par moi.
 
 mm.add({
   isDesktop: "(min-width: 1025px)",
@@ -108,9 +108,6 @@ mm.add({
   })
   .to(works, {
     xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
-    // x: isDesktop ? "-25vw" : "-300vw",
-    // ease: "power2.inOut",
-    // duration: isDesktop ? 1 : 5,
   });
 
   // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
