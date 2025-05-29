@@ -53,7 +53,6 @@
   align-items: center;
   justify-content: flex-start;
 
-  // min-height: 150vh;
   &__container {
     display: flex;
     flex-direction: column;
@@ -77,7 +76,7 @@
     color: #d8e3ec;
     font-feature-settings: "ss01" on;
     font-family: Lexend;
-    font-size: 4rem;
+    font-size: $h2-size;
     font-style: normal;
     font-weight: 900;
     line-height: 110%;
@@ -85,20 +84,26 @@
     margin: 0;
     margin-bottom: 64px;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 32px;
+    }
   }
 
   &__cards {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
   }
 
+
+
   &__card {
-    width: 25vw;
+    // width: 25vw;
     padding: 1rem;
     border-radius: 48px;
     border: 2px solid rgba(91, 106, 118, 0.5);
@@ -112,7 +117,13 @@
     transition: all 0.3s ease;
 
     @media screen and (max-width: 768px) {
-      width: 90vw;
+      border-radius: 24px;
+      width: 50%;
+      gap: 1rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 100%;
     }
 
     &:hover {
@@ -124,12 +135,24 @@
       aspect-ratio: 16 / 9;
       border-radius: 32px;
       background-color: $text-color;
+
+      @media screen and (max-width: 768px) {
+        border-radius: 8px;
+        width: 50%;
+      }
     }
 
     &-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.5rem;
+      }
     }
 
     &-h3,
@@ -148,6 +171,10 @@
       display: flex;
       gap: 1rem;
       flex-direction: column;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: row;
+      }
     }
   }
 
@@ -157,7 +184,12 @@
     gap: 1rem;
     width: 100%;
 
+    @media screen and (max-width: 768px) {
+      gap: .5rem;
+    }
+
     a {
+      white-space: nowrap;
       text-align: center;
       width: 100%;
       height: 100%;
@@ -174,6 +206,10 @@
 
       &:hover {
         background: rgba(33, 40, 46, 0.75);
+      }
+
+      @media screen and (max-width: 768px) {
+        padding: 0.5rem;
       }
     }
   }
