@@ -60,7 +60,7 @@ mm.add({
     height: "auto",
     width: navWidth,
     xPercent: -50,
-    y: isMobile ? 0 : "1rem", 
+    y: isMobile ? 0 : "1rem",
     x: 0,
     yPercent: 0,
     top: "0",
@@ -71,44 +71,41 @@ mm.add({
     duration: 1,
     border: "1px solid rgba(216, 227, 236, 0.5)",
     borderRadius: isMobile ? "0 0 2rem 2rem" : "4rem",
-    borderTop: isMobile ? "none" : "1px solid rgba(216, 227, 236, 0.5)", 
+    borderTop: isMobile ? "none" : "1px solid rgba(216, 227, 236, 0.5)",
   }, 0);
 
   tl.to(".nav__container", {
     opacity: 1,
     ease: "power2.inOut",
   })
-  .to(".hero__h1", {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.inOut",
-  })
-  .to(".hero__span", {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.inOut",
-  }, "<")
-  .to(".work__container", {
-    width: isDesktop ? "90vw" : "100%",
-    height: isDesktop ? "85vh" : "90dvh",
-    y: "-90vh",
-    ease: "power2.inOut",
-    duration: 1,
-    borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
-  })
-  .fromTo(works, {
-    display: "none",
-    opacity: 0,
-  }, {
-    display: "flex",
-    opacity: 1,
-    stagger: 0.1,
-    ease: "power2.inOut",
-    duration: .5,
-  })
-  // .to(works, {
-  //   xPercent: isMobile ? -100 * (works.length - 1) : -30 * (works.length - 1),
-  // });
+    .to(".hero__h1", {
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    })
+    .to(".hero__span", {
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    }, "<")
+    .to(".work__container", {
+      width: isDesktop ? "90vw" : "100%",
+      height: isDesktop ? "85vh" : "90dvh",
+      y: "-90vh",
+      ease: "power2.inOut",
+      duration: 1,
+      borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
+    })
+    .fromTo(works, {
+      display: "none",
+      opacity: 0,
+    }, {
+      display: "flex",
+      opacity: 1,
+      stagger: 0.1,
+      ease: "power2.inOut",
+      duration: .5,
+    })
 
   // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
   return () => {
