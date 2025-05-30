@@ -168,6 +168,16 @@ function initializeGsap() {
         ease: "power2.inOut",
         duration: .5,
       })
+      .fromTo(".work__button", {
+        display: "none",
+        opacity: 0,
+      }, {
+        display: "flex",
+        opacity: 1,
+        ease: "power2.inOut",
+        duration: .5,
+        stagger: 0.1,
+      }, "<");
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
     return () => {
