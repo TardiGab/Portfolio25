@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .hero {
   height: 100vh;
   display: flex;
@@ -55,7 +61,7 @@
   height: 100vh;
 
   @media screen and (max-width: 768px) {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
 
   &__container {
@@ -63,6 +69,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 50vw;
+    height: 15vh;
     padding: 2rem;
     border-radius: 64px;
     border: 2px solid rgba(91, 106, 118, 0.5);
@@ -89,25 +96,18 @@
     letter-spacing: 2%;
     margin: 0;
     text-align: center;
-
-    @media screen and (max-width: 768px) {
-      margin-bottom: 32px;
-    }
   }
 
   &__cards {
     height: 100%;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
   }
 
-
-
   &__card {
-    max-width: 25vw;
-    height: 80%;
+    min-width: 25vw;
     padding: 1rem;
     border-radius: 48px;
     border: 2px solid rgba(91, 106, 118, 0.5);
@@ -119,17 +119,16 @@
     gap: 5rem;
     color: $text-color;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 
     @media screen and (max-width: 768px) {
-      border-radius: 24px;
-      max-width: 50%;
-      width: 50%;
-      gap: 1rem;
+      min-width: 50vw;
+      // width: 100%;
       height: auto;
     }
 
     @media screen and (max-width: 480px) {
-      max-width: 100%;
+      min-width: 90vw;
       width: 100%;
     }
 
@@ -143,10 +142,10 @@
       border-radius: 32px;
       background-color: $text-color;
 
-      @media screen and (max-width: 768px) {
-        border-radius: 8px;
-        width: 50%;
-      }
+      // @media screen and (max-width: 768px) {
+      //   border-radius: 8px;
+      //   width: 50%;
+      // }
     }
 
     &-title {
@@ -154,12 +153,12 @@
       justify-content: space-between;
       align-items: center;
 
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 0.5rem;
-      }
+      // @media screen and (max-width: 768px) {
+      //   flex-direction: column;
+      //   align-items: flex-start;
+      //   justify-content: flex-start;
+      //   gap: 0.5rem;
+      // }
     }
 
     &-h3,
@@ -179,9 +178,9 @@
       gap: 1rem;
       flex-direction: column;
 
-      @media screen and (max-width: 768px) {
-        flex-direction: row;
-      }
+      // @media screen and (max-width: 768px) {
+      //   flex-direction: row;
+      // }
     }
 
     &-links {
@@ -190,9 +189,9 @@
       gap: 1rem;
       width: 100%;
 
-      @media screen and (max-width: 768px) {
-        gap: .5rem;
-      }
+      // @media screen and (max-width: 768px) {
+      //   gap: .5rem;
+      // }
 
       a {
         white-space: nowrap;
@@ -214,9 +213,9 @@
           background: rgba(33, 40, 46, 0.75);
         }
 
-        @media screen and (max-width: 768px) {
-          padding: 0.5rem;
-        }
+        // @media screen and (max-width: 768px) {
+        //   padding: 0.5rem;
+        // }
       }
     }
   }
@@ -226,14 +225,11 @@
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    // height: 100%;
     gap: 1rem;
 
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+    // @media screen and (max-width: 768px) {
+
+    // }
   }
 
   &__button {
@@ -258,6 +254,7 @@
     @media screen and (max-width: 768px) {
       padding: 0.5rem;
       font-size: $nav-size;
+      width: 100%;
     }
   }
 

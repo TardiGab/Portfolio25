@@ -15,18 +15,18 @@
       "caseStudyUrl": "https://exemple.com/case-study"
     },
     {
-      "name": "Decembre",
-      "releaseYear": "2023",
-      "imageUrl": "assets/images/decembre.webp",
-      "siteUrl": "https://gabriel-manciu.be/projets/decembre/",
-      "caseStudyUrl": "https://exemple.com/case-study"
+      "name": "EminenceRP",
+      "releaseYear": "2024",
+      "imageUrl": "assets/images/eminencerp.webp",
+      "siteUrl": "https://eminenceroleplay.fr",
+      "caseStudyUrl": null
     },
     {
       "name": "Decembre",
       "releaseYear": "2023",
       "imageUrl": "assets/images/decembre.webp",
       "siteUrl": "https://gabriel-manciu.be/projets/decembre/",
-      "caseStudyUrl": "https://exemple.com/case-study"
+      "caseStudyUrl": null
     }
   ]
 }

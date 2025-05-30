@@ -3,8 +3,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
-import Swiper from "swiper/bundle";
-import 'swiper/swiper-bundle.css';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -15,7 +13,6 @@ fetch("../assets/data/projects.json")
       displayProjects(data.projects);
       // Initialisation de GSAP et ScrollTrigger après le chargement des projets
       initializeGsap();
-      swiperProjects();
     } else {
       console.error("Error: 'projects' array not found in data", data);
     }
@@ -36,7 +33,6 @@ function displayProjects(projects) {
     const cardCaseStudy = document.createElement("a");
     const cardImage = document.createElement("img");
     card.className = "work__card";
-    card.classList.add("swiper-slide");
     cardTop.className = "work__card--top";
     cardBottom.className = "work__card--bottom";
     cardTitleContainer.className = "work__card-title";
@@ -156,13 +152,11 @@ function initializeGsap() {
       .to(".work__container", {
         width: isDesktop ? "90vw" : "100%",
         height: isDesktop ? "85vh" : "90dvh",
-        // y: "-90vh",
         ease: "power2.inOut",
         duration: 1,
         borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
       })
       .fromTo(".work__card", {
-        display: "none",
         opacity: 0,
         delay: 2,
       }, {
@@ -173,14 +167,11 @@ function initializeGsap() {
         duration: .5,
       })
       .fromTo(".work__button", {
-        display: "none",
         opacity: 0,
       }, {
-        display: "flex",
         opacity: 1,
         ease: "power2.inOut",
         duration: .5,
-        stagger: 0.1,
       }, "<");
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
@@ -188,31 +179,6 @@ function initializeGsap() {
       tl.kill();
     };
   });
-}
-function swiperProjects() {
-  const swiper = new Swiper(".swiper", {
-    slidesPerView: 3,
-    spaceBetween: 16,
-    grabCursor: true,
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 16,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 16,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 16,
-      },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  })
 }
 
 const burger = document.querySelector(".nav__burger");

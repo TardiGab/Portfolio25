@@ -14,9 +14,14 @@
     &-prev,
     &-next {
       position: inherit !important;
-      width: auto !important;
+      width: 100% !important;
       // height: auto !important;
       color: $text-color !important;
+
+      @media screen and (max-width: 768px) {
+        display: 100% !important;
+
+      }
 
       &::after {
         display: none !important;
