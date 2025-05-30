@@ -55,6 +55,7 @@ function displayProjects(projects) {
     cardTop.appendChild(cardTitleContainer);
     cardImage.src = project.imageUrl;
     cardLink.href = project.siteUrl;
+    cardLink.target = "_blank";
     cardLink.textContent = "Site en ligne";
     cardCaseStudy.href = project.caseStudyUrl;
     if (!project.caseStudyUrl) {
