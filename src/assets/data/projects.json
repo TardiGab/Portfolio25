@@ -20,6 +20,13 @@
       "imageUrl": "assets/images/decembre.webp",
       "siteUrl": "https://gabriel-manciu.be/projets/decembre/",
       "caseStudyUrl": "https://exemple.com/case-study"
+    },
+    {
+      "name": "Decembre",
+      "releaseYear": "2023",
+      "imageUrl": "assets/images/decembre.webp",
+      "siteUrl": "https://gabriel-manciu.be/projets/decembre/",
+      "caseStudyUrl": "https://exemple.com/case-study"
     }
   ]
 }

@@ -1,19 +1,21 @@
 "use strict";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
+import Swiper from "swiper/bundle";
+import 'swiper/swiper-bundle.css';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 fetch("../assets/data/projects.json")
   .then(response => response.json())
   .then(data => {
-    console.log("Projects loaded:", data);
     if (data.projects) {
       displayProjects(data.projects);
       // Initialisation de GSAP et ScrollTrigger après le chargement des projets
       initializeGsap();
+      swiperProjects();
     } else {
       console.error("Error: 'projects' array not found in data", data);
     }
@@ -34,6 +36,7 @@ function displayProjects(projects) {
     const cardCaseStudy = document.createElement("a");
     const cardImage = document.createElement("img");
     card.className = "work__card";
+    card.classList.add("swiper-slide");
     cardTop.className = "work__card--top";
     cardBottom.className = "work__card--bottom";
     cardTitleContainer.className = "work__card-title";
@@ -53,6 +56,7 @@ function displayProjects(projects) {
     worksContainer.appendChild(card);
     cardTop.appendChild(cardImage);
     cardTop.appendChild(cardTitleContainer);
+
     cardImage.src = project.imageUrl;
     cardLink.href = project.siteUrl;
     cardLink.target = "_blank";
@@ -184,6 +188,31 @@ function initializeGsap() {
       tl.kill();
     };
   });
+}
+function swiperProjects() {
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: 3,
+    spaceBetween: 16,
+    grabCursor: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+      },
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  })
 }
 
 const burger = document.querySelector(".nav__burger");

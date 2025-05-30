@@ -1,0 +1,26 @@
+@import '../utils/variables';
+
+:root {
+  --swiper-navigation-size: auto !important;
+}
+
+.swiper {
+  &-slide {
+    height: auto !important;
+  }
+
+  &-button {
+
+    &-prev,
+    &-next {
+      position: inherit !important;
+      width: auto !important;
+      // height: auto !important;
+      color: $text-color !important;
+
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+}

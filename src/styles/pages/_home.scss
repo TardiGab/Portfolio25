@@ -61,6 +61,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 50vw;
     padding: 2rem;
     border-radius: 64px;
@@ -87,7 +88,6 @@
     line-height: 110%;
     letter-spacing: 2%;
     margin: 0;
-    margin-bottom: 64px;
     text-align: center;
 
     @media screen and (max-width: 768px) {
@@ -101,8 +101,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
   }
 
 
