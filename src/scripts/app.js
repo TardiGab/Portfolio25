@@ -128,11 +128,14 @@ function initializeGsap() {
       ease: "power2.inOut",
       duration: 1,
       borderRadius: isMobile ? "0" : "4rem",
-      borderTop: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
-      borderLeft: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
-      borderRight: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
-      borderBottom: "2px solid rgba(91, 106, 118, 0.5)",
-    }, 0);
+    }, 0)
+      .to(".nav", {
+        borderTop: isMobile ? "0px solid" : "2px solid rgba(91, 106, 118, 0.5)",
+        borderLeft: isMobile ? "0px solid" : "2px solid rgba(91, 106, 118, 0.5)",
+        borderRight: isMobile ? "0px solid" : "2px solid rgba(91, 106, 118, 0.5)",
+        borderBottom: "2px solid rgba(91, 106, 118, 0.5)",
+        duration: 1,
+      });
 
     let works = gsap.utils.toArray(".work__cards .work__card");
 
@@ -173,6 +176,21 @@ function initializeGsap() {
       .to(works, {
         xPercent: isMobile ? -105 * (works.length - 1) : -30 * (works.length - 1),
       })
+      .fromTo(".work__card", {
+        opacity: 1,
+        stagger: 0.1,
+      }, {
+        opacity: 0,
+        display: "none",
+      })
+      .to(".work", {
+        xPercent: -100,
+        ease: "power2.inOut",
+      })
+      .to(".about", {
+        y: "-200vh",
+        ease: "power2.inOut",
+      }, "<")
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
     return () => {
