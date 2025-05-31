@@ -127,9 +127,11 @@ function initializeGsap() {
       background: "rgba(11, 21, 48, 0.25)",
       ease: "power2.inOut",
       duration: 1,
-      border: "1px solid rgba(216, 227, 236, 0.5)",
-      borderRadius: isMobile ? "0 0 2rem 2rem" : "4rem",
-      borderTop: isMobile ? "none" : "1px solid rgba(216, 227, 236, 0.5)",
+      borderRadius: isMobile ? "0" : "4rem",
+      borderTop: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
+      borderLeft: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
+      borderRight: isMobile ? "none" : "2px solid rgba(91, 106, 118, 0.5)",
+      borderBottom: "2px solid rgba(91, 106, 118, 0.5)",
     }, 0);
 
     let works = gsap.utils.toArray(".work__cards .work__card");

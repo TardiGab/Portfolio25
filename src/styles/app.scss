@@ -1,5 +1,6 @@
 @import 'utils/variables';
 @import 'utils/mixins';
+
 @import 'components/type';
 @import 'components/nav';
 @import 'components/footer';
@@ -9,7 +10,7 @@
 
 body {
   background-color: #000;
-  min-height: 300vh;
+  // min-height: 300vh;
   margin: 0;
   font-family: Lexend;
   font-feature-settings: "ss01" on;

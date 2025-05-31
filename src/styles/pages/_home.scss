@@ -29,9 +29,7 @@
   }
 
   &__h1 {
-    color: #d8e3ec;
-    font-feature-settings: "ss01" on;
-    font-family: Lexend;
+    color: $text-color;
     font-size: $h1-size;
     font-style: normal;
     font-weight: 900;
@@ -40,7 +38,7 @@
     margin: 0;
     margin-bottom: clamp(2rem, 1rem + 3.3333vw, 4rem);
     text-align: center;
-    width: 90%;
+    width: 80%;
   }
 
   &__span {
@@ -49,7 +47,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: $p-size;
-    font-family: Lexend;
   }
 }
 
@@ -68,16 +65,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50vw;
+    width: 30vw;
     height: 15vh;
     padding: 2rem;
-    border-radius: 64px;
-    border: 2px solid rgba(91, 106, 118, 0.5);
-    background: #07203451;
-    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25),
-      inset 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(20px);
     overflow: hidden;
+    @include glass-container(64px, 2px, 20px, 2rem);
 
     @media screen and (max-width: 768px) {
       width: 100%;
@@ -86,16 +78,14 @@
   }
 
   &__h2 {
-    color: #d8e3ec;
-    font-feature-settings: "ss01" on;
-    font-family: Lexend;
+    color: $text-color;
     font-size: $h2-size;
-    font-style: normal;
     font-weight: 900;
     line-height: 110%;
     letter-spacing: 2%;
     margin: 0;
     text-align: center;
+    width: 100%;
   }
 
   &__cards {
@@ -108,22 +98,17 @@
 
   &__card {
     min-width: 25vw;
-    padding: 1rem;
-    border-radius: 48px;
-    border: 2px solid rgba(91, 106, 118, 0.5);
+    @include glass-container(48px, 2px, 10px, 1rem);
     background: rgba(43, 59, 73, 0.35);
-    backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 5rem;
     color: $text-color;
-    // transition: all 0.3s ease;
     box-sizing: border-box;
 
     @media screen and (max-width: 768px) {
       min-width: 50vw;
-      // width: 100%;
       height: auto;
     }
 
@@ -132,33 +117,17 @@
       width: 100%;
     }
 
-    &:hover {
-      background: rgba(43, 59, 73, 0.50);
-    }
-
     &-img {
       width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: 32px;
       background-color: $text-color;
-
-      // @media screen and (max-width: 768px) {
-      //   border-radius: 8px;
-      //   width: 50%;
-      // }
     }
 
     &-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      // @media screen and (max-width: 768px) {
-      //   flex-direction: column;
-      //   align-items: flex-start;
-      //   justify-content: flex-start;
-      //   gap: 0.5rem;
-      // }
     }
 
     &-h3,
@@ -177,10 +146,6 @@
       display: flex;
       gap: 1rem;
       flex-direction: column;
-
-      // @media screen and (max-width: 768px) {
-      //   flex-direction: row;
-      // }
     }
 
     &-links {
@@ -188,10 +153,6 @@
       justify-content: center;
       gap: 1rem;
       width: 100%;
-
-      // @media screen and (max-width: 768px) {
-      //   gap: .5rem;
-      // }
 
       a {
         white-space: nowrap;
@@ -202,62 +163,15 @@
         color: $text-color;
         font-size: $nav-size;
         transition: all 0.3s ease;
-        padding: 1rem;
-        border-radius: 32px;
-        border: 1px solid rgba(216, 227, 236, 0.50);
+        @include glass-container(32px, 1px, 5px, 1rem, $box-shadow: false);
         background: rgba(33, 40, 46, 0.10);
-        box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
-        backdrop-filter: blur(10px);
 
         &:hover {
           background: rgba(33, 40, 46, 0.75);
         }
-
-        // @media screen and (max-width: 768px) {
-        //   padding: 0.5rem;
-        // }
       }
     }
   }
-
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
-
-    // @media screen and (max-width: 768px) {
-
-    // }
-  }
-
-  &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: $text-color;
-    font-size: $nav-size;
-    transition: all 0.3s ease;
-    padding: 1rem;
-    border-radius: 32px;
-    border: 1px solid rgba(216, 227, 236, 0.50);
-    background: rgba(33, 40, 46, 0.10);
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
-    backdrop-filter: blur(10px);
-
-    &:hover {
-      background: rgba(33, 40, 46, 0.75);
-    }
-
-    @media screen and (max-width: 768px) {
-      padding: 0.5rem;
-      font-size: $nav-size;
-      width: 100%;
-    }
-  }
-
 }
 
 .about {

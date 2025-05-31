@@ -169,6 +169,16 @@ button {
       display: flex;
       justify-content: space-between;
     }
+
+    &--left {
+      color: $text-color;
+      font-weight: 700;
+      font-size: $p-size;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   &__ul {
@@ -180,6 +190,10 @@ button {
     margin: 0;
     padding: 0;
     white-space: nowrap;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     li {
       display: flex;
@@ -220,10 +234,6 @@ button {
       background: #1f397f;
       border: 1px solid #111e43;
       box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
-    }
-
-    @media screen and (max-width: 768px) {
-      display: none;
     }
   }
 }
