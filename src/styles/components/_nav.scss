@@ -31,12 +31,12 @@ button {
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
-  padding: 4px;
+  padding: .5rem;
   border-radius: 6.25rem;
   border: 2px solid rgba(216, 227, 236, 0.5);
   background: rgba(216, 227, 236, 0.5);
-  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25), 
-              inset 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25),
+    inset 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(5px);
   width: 35%;
   height: 20%;
@@ -45,6 +45,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%) rotate(-167deg);
   z-index: 1000;
+
   @media screen and (max-width: 768px) {
     width: 50%;
     height: 10%;
@@ -52,14 +53,17 @@ button {
     padding: 1rem;
     border-radius: 4rem;
   }
+
   &__burger {
     display: none;
+
     @media screen and (max-width: 768px) {
       display: block;
       width: 2rem;
       height: 2rem;
       position: relative;
       cursor: pointer;
+
       &::before,
       &::after {
         content: "";
@@ -70,16 +74,20 @@ button {
         left: 0.25rem;
         transition: all 0.3s ease;
       }
+
       &::before {
         top: 0.5rem;
       }
+
       &::after {
         bottom: 0.5rem;
       }
     }
   }
+
   &__mobile {
     display: none;
+
     @media screen and (max-width: 768px) {
       display: flex;
       width: 100%;
@@ -95,6 +103,7 @@ button {
       backdrop-filter: blur(5px);
       transform: translateY(-100vh);
     }
+
     &-close {
       position: absolute;
       top: 1rem;
@@ -105,6 +114,7 @@ button {
       display: flex;
       align-items: center;
       justify-content: center;
+
       &::before,
       &::after {
         content: "";
@@ -114,13 +124,16 @@ button {
         background-color: white;
         transition: all 0.3s ease;
       }
+
       &::before {
         transform: rotate(45deg);
       }
+
       &::after {
         transform: rotate(-45deg);
       }
     }
+
     &-ul {
       display: flex;
       flex-direction: column;
@@ -132,6 +145,7 @@ button {
       list-style-type: none;
       margin: 0;
       padding: 0;
+
       li {
         a {
           text-decoration: none;
@@ -141,29 +155,32 @@ button {
       }
     }
   }
+
   &__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, auto);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-            
+
     width: 100%;
     height: 100%;
     opacity: 0;
+
     @media screen and (max-width: 768px) {
       display: flex;
       justify-content: space-between;
     }
   }
+
   &__left {
     display: flex;
     align-items: center;
     gap: 8px;
   }
+
   &__name {
     color: $text-color;
   }
+
   &__logo {
     height: 29px;
     width: 29px;
@@ -173,14 +190,17 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:hover {
       width: calc(29px * 2);
       padding: 0 8px;
+
       &::after {
         opacity: 1;
         transition: all 0.5s ease;
       }
     }
+
     &::after {
       content: "Gabriel";
       // position: absolute;
@@ -194,49 +214,54 @@ button {
       transition: all 0.5s ease;
     }
   }
+
   &__ul {
     list-style-type: none;
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     margin: 0;
     padding: 0;
     white-space: nowrap;
+
     li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+
       a {
         text-decoration: none;
         color: $text-color;
         opacity: 60%;
         transition: all 0.5s ease;
+
         &:hover {
           opacity: 100%;
         }
       }
     }
   }
-  &__middle {
-    border-left: 1px solid $text-color;
-    border-right: 1px solid $text-color;
-    padding: 0 3rem;
-    justify-self: center;
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-  &__right {
-    padding: 4px 16px;
+
+  &__contact {
+    padding: .25rem 2rem;
     border-radius: 3.125rem;
     border: 1px solid #35578a;
     background: #0b1530;
     text-decoration: none;
     color: white;
     transition: all 0.5s ease;
-    justify-self: end;
     align-self: center;
+    opacity: 1;
+    text-align: center;
+
     &:hover {
       background: #1f397f;
       border: 1px solid #111e43;
       box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
     }
+
     @media screen and (max-width: 768px) {
       display: none;
     }
