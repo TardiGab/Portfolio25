@@ -106,7 +106,7 @@ function initializeGsap() {
 
     let navWidth;
     if (isDesktop) {
-      navWidth = "50%";
+      navWidth = "25%";
     } else if (isTablet) {
       navWidth = "70%";
     } else {
