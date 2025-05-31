@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "name": "RUX",
+      "releaseYear": "2025",
+      "imageUrl": "assets/images/rux.webp",
+      "siteUrl": "https://gabriel-manciu.be/projets/rethinking-ux",
+      "caseStudyUrl": null
+    },
+    {
+      "name": "MusicPLZ",
+      "releaseYear": "2024",
+      "imageUrl": "assets/images/musicplz.webp",
+      "siteUrl": "https://gabriel-manciu.be/projets/musicplz",
+      "caseStudyUrl": "https://exemple.com/case-study"
+    },
+    {
+      "name": "EminenceRP",
+      "releaseYear": "2024",
+      "imageUrl": "assets/images/eminencerp.webp",
+      "siteUrl": "https://eminenceroleplay.fr",
+      "caseStudyUrl": null
+    },
+    {
+      "name": "Decembre",
+      "releaseYear": "2023",
+      "imageUrl": "assets/images/decembre.webp",
+      "siteUrl": "https://gabriel-manciu.be/projets/decembre/",
+      "caseStudyUrl": null
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .hero {
   height: 100vh;
   display: flex;
@@ -51,13 +57,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  height: 100vh;
 
-  // min-height: 150vh;
+  @media screen and (max-width: 768px) {
+    justify-content: flex-end;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 50vw;
+    height: 15vh;
     padding: 2rem;
     border-radius: 64px;
     border: 2px solid rgba(91, 106, 118, 0.5);
@@ -65,55 +77,63 @@
     box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.25),
       inset 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
-    overflow-x: hidden;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 1rem;
+    }
   }
 
   &__h2 {
     color: #d8e3ec;
     font-feature-settings: "ss01" on;
     font-family: Lexend;
-    font-size: 4rem;
+    font-size: $h2-size;
     font-style: normal;
     font-weight: 900;
     line-height: 110%;
     letter-spacing: 2%;
     margin: 0;
-    margin-bottom: 64px;
     text-align: center;
   }
 
   &__cards {
-    width: 600%;
     height: 100%;
     display: flex;
-    gap: 2rem;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    // overflow-x: auto;
-
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
   }
 
   &__card {
-    width: 25vw;
+    min-width: 25vw;
     padding: 1rem;
     border-radius: 48px;
     border: 2px solid rgba(91, 106, 118, 0.5);
-    background: #2b3b4961;
+    background: rgba(43, 59, 73, 0.35);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: .5rem;
-    color: #d8e3ec;
-    font-family: Lexend;
-    font-size: 1.5rem;
-    font-weight: normal;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    gap: 5rem;
+    color: $text-color;
+    // transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 768px) {
+      min-width: 50vw;
+      // width: 100%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      min-width: 90vw;
+      width: 100%;
+    }
 
     &:hover {
-      background: #182749;
+      background: rgba(43, 59, 73, 0.50);
     }
 
     &-img {
@@ -121,20 +141,32 @@
       aspect-ratio: 16 / 9;
       border-radius: 32px;
       background-color: $text-color;
+
+      // @media screen and (max-width: 768px) {
+      //   border-radius: 8px;
+      //   width: 50%;
+      // }
     }
 
     &-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      // @media screen and (max-width: 768px) {
+      //   flex-direction: column;
+      //   align-items: flex-start;
+      //   justify-content: flex-start;
+      //   gap: 0.5rem;
+      // }
     }
 
     &-h3,
     &-year {
-      font-size: 31px;
+      font-size: $h3-size;
       margin: 0;
       font-weight: 700;
-      color: #d8e3ec;
+      color: $text-color;
     }
 
     &-year {
@@ -145,66 +177,87 @@
       display: flex;
       gap: 1rem;
       flex-direction: column;
+
+      // @media screen and (max-width: 768px) {
+      //   flex-direction: row;
+      // }
     }
 
-    &--bottom {
+    &-links {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       gap: 1rem;
-    }
-  }
-
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    padding: 1rem;
-    border: 2px solid rgba(91, 106, 118, 0.5);
-    border-radius: 32px;
-    background: #07203451;
-  }
-
-  &__tag {
-    background: #d8e3ec42;
-    color: $text-color;
-    padding: 0.5rem 1rem;
-    border-radius: 32px;
-    font-size: 1.2rem;
-    font-weight: 300;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(91, 106, 118, 0.5);
-  }
-
-  &__links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
-    display: none;
-
-    &:hover {
-      display: flex;
-    }
-
-    a {
       width: 100%;
-      height: 100%;
-      text-decoration: none;
-      color: #d8e3ec;
-      font-size: $p-size;
-      transition: all 0.3s ease;
-      padding: .5rem 1rem;
-      border-radius: 32px;
-      border: 2px solid rgba(91, 106, 118, 0.5);
-      background-color: #07203451;
 
-      &:hover {
-        background-color: #72bce1;
-        color: #0b1530;
+      // @media screen and (max-width: 768px) {
+      //   gap: .5rem;
+      // }
+
+      a {
+        white-space: nowrap;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: $text-color;
+        font-size: $nav-size;
+        transition: all 0.3s ease;
+        padding: 1rem;
+        border-radius: 32px;
+        border: 1px solid rgba(216, 227, 236, 0.50);
+        background: rgba(33, 40, 46, 0.10);
+        box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
+        backdrop-filter: blur(10px);
+
+        &:hover {
+          background: rgba(33, 40, 46, 0.75);
+        }
+
+        // @media screen and (max-width: 768px) {
+        //   padding: 0.5rem;
+        // }
       }
     }
   }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+    // @media screen and (max-width: 768px) {
+
+    // }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $text-color;
+    font-size: $nav-size;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    border-radius: 32px;
+    border: 1px solid rgba(216, 227, 236, 0.50);
+    background: rgba(33, 40, 46, 0.10);
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: rgba(33, 40, 46, 0.75);
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0.5rem;
+      font-size: $nav-size;
+      width: 100%;
+    }
+  }
+
 }
 
 .about {
