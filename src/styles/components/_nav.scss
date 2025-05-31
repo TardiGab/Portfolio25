@@ -197,6 +197,10 @@ button {
           opacity: 100%;
         }
       }
+
+      &:last-child {
+        justify-content: flex-end;
+      }
     }
   }
 
