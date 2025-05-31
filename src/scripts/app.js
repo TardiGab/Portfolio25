@@ -30,19 +30,19 @@ let mm = gsap.matchMedia();
 const works = gsap.utils.toArray(".work__cards .work__card");
 
 tl.to(".hero__container", {
-    width: "100%",
-    height: "100vh",
-    marginTop: 0,
-    borderRadius: 0,
-    ease: "power2.inOut",
-    position: "fixed",
-  }, 0)
+  width: "100%",
+  height: "100vh",
+  marginTop: 0,
+  borderRadius: 0,
+  ease: "power2.inOut",
+  position: "fixed",
+}, 0)
   .to(".nav", {
     rotate: 0,
     height: "auto",
-    width: "50%",
+    width: "25%",
     xPercent: -50,
-    y: "2rem",    
+    y: "2rem",
     x: 0,
     yPercent: 0,
     top: "0",
@@ -50,7 +50,7 @@ tl.to(".hero__container", {
     position: "fixed",
     background: "rgba(11, 21, 48, 0.25)",
     ease: "power2.inOut",
-    duration: 1, 
+    duration: 1,
     border: "1px solid rgba(216, 227, 236, 0.5)",
     borderRadius: "4rem",
     onComplete: () => {
