@@ -13,7 +13,6 @@ fetch("../assets/data/projects.json")
       displayProjects(data.projects);
       // Initialisation de GSAP et ScrollTrigger après le chargement des projets
       initializeGsap();
-      // slider();
     } else {
       console.error("Error: 'projects' array not found in data", data);
     }
@@ -34,7 +33,6 @@ function displayProjects(projects) {
     const cardCaseStudy = document.createElement("a");
     const cardImage = document.createElement("img");
     card.className = "work__card";
-    // card.classList.add("glide__slide");
     cardTop.className = "work__card--top";
     cardBottom.className = "work__card--bottom";
     cardTitleContainer.className = "work__card-title";
@@ -173,13 +171,6 @@ function initializeGsap() {
       .to(works, {
         xPercent: isMobile ? -105 * (works.length - 1) : -30 * (works.length - 1),
       })
-    // .fromTo(".work__button", {
-    //   opacity: 0,
-    // }, {
-    //   opacity: 1,
-    //   ease: "power2.inOut",
-    //   duration: .5,
-    // }, "<")
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
     return () => {
@@ -187,23 +178,6 @@ function initializeGsap() {
     };
   });
 }
-
-// function slider() {
-//   new Glide(".glide", {
-//     type: "carousel",
-//     startAt: 0,
-//     perView: 3,
-//     focusAt: "center",
-//     breakpoints: {
-//       1024: {
-//         perView: 2,
-//       },
-//       768: {
-//         perView: 1,
-//       },
-//     },
-//   })
-// }
 
 const burger = document.querySelector(".nav__burger");
 burger.addEventListener("click", () => {

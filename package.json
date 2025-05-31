@@ -29,7 +29,6 @@
     "sass-loader": "^12.4.0"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.7.1",
     "gsap": "^3.13.0"
   }
 }
