@@ -68,7 +68,7 @@ function displayProjects(projects) {
 }
 
 ScrollSmoother.create({
-  smooth: 2,
+  smooth: 1.5,
   effects: true,
   smoothTouch: 0.1,
 });
@@ -135,19 +135,19 @@ function initializeGsap() {
         borderRight: isMobile ? "0px solid" : "2px solid rgba(91, 106, 118, 0.5)",
         borderBottom: "2px solid rgba(91, 106, 118, 0.5)",
         duration: 1,
-      });
+      })
+      .to(".nav__container", {
+        opacity: 1,
+        ease: "power2.inOut",
+      }, "<");
 
     let works = gsap.utils.toArray(".work__cards .work__card");
 
-    tl.to(".nav__container", {
-      opacity: 1,
+    tl.to(".hero__h1", {
+      opacity: 0,
+      duration: 1,
       ease: "power2.inOut",
     })
-      .to(".hero__h1", {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      })
       .to(".hero__span", {
         opacity: 0,
         duration: 1,
@@ -174,7 +174,7 @@ function initializeGsap() {
         duration: .5,
       })
       .to(works, {
-        xPercent: isMobile ? -105 * (works.length - 1) : -30 * (works.length - 1),
+        xPercent: isMobile ? -105 * (works.length - 1) : -50 * (works.length - 1),
       })
       .fromTo(".work__card", {
         opacity: 1,
@@ -190,7 +190,13 @@ function initializeGsap() {
       .to(".about", {
         y: "-200vh",
         ease: "power2.inOut",
+        duration: 2,
       }, "<")
+      .to(".hero__container", {
+        width: "90vw",
+        height: "90dvh",
+        borderRadius: "64px"
+      })
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
     return () => {

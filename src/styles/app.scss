@@ -4,13 +4,15 @@
 @import 'components/type';
 @import 'components/nav';
 @import 'components/footer';
-@import 'components/swiper';
 
 @import 'pages/home';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #000;
-  // min-height: 300vh;
   margin: 0;
   font-family: Lexend;
   font-feature-settings: "ss01" on;
