@@ -226,19 +226,12 @@ closeNav.addEventListener("click", () => {
   document.body.style.overflow = "auto";
 });
 
-// Ajout du gestionnaire pour le lien "Retour en haut"
+
+// Utilisation de Github Copilot car l'ancre de retour en haut n'était pas fonctionnelle
 const backToTopLink = document.querySelector(".footer__back-top");
 if (backToTopLink) {
   backToTopLink.addEventListener("click", (e) => {
-    e.preventDefault(); // Empêche le comportement de l'ancre par défaut
-    if (smoother) {
-      smoother.scrollTo(0, true); // Utilise ScrollSmoother pour défiler vers #hero
-    } else {
-      // Fallback si ScrollSmoother n'est pas initialisé
-      const heroElement = document.getElementById('hero');
-      if (heroElement) {
-        heroElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    e.preventDefault();
+    smoother.scrollTo(0, true);
   });
 }
