@@ -163,12 +163,7 @@
         color: $text-color;
         font-size: $nav-size;
         transition: all 0.3s ease;
-        @include glass-container(32px, 1px, 5px, 1rem, $box-shadow: false);
-        background: rgba(33, 40, 46, 0.10);
-
-        &:hover {
-          background: rgba(33, 40, 46, 0.75);
-        }
+        @include glass-container(32px, 1px, 5px, 1rem, $box-shadow: false, $button: true);
       }
     }
   }
