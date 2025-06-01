@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "name": "Design Fiction",
+      "releaseYear": "2025",
+      "imageUrl": "assets/images/design-fiction.webp",
+      "siteUrl": "https://gabriel-manciu.be/projets/design-fiction",
+      "caseStudyUrl": null
+    },
+    {
       "name": "RUX",
       "releaseYear": "2025",
       "imageUrl": "assets/images/rux.webp",
