@@ -20,6 +20,10 @@
     flex-direction: row;
     align-items: stretch;
     gap: 2rem;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__contact {
@@ -74,10 +78,22 @@
       align-items: flex-start;
       flex: 1 0 0;
 
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
       div {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        @media screen and (max-width: 768px) {
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-between;
+          gap: 0;
+        }
 
         a {
           font-size: $p-size;
@@ -107,6 +123,11 @@
       align-self: stretch;
       gap: 1rem;
       height: 100%;
+
+      @media screen and (max-width: 768px) {
+        gap: 0.5rem;
+        justify-content: space-between;
+      }
 
       li {
         display: flex;
@@ -159,6 +180,10 @@
       background-size: cover;
       background-repeat: no-repeat;
       filter: invert(1);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
     }
   }
 }
