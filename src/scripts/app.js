@@ -67,11 +67,12 @@ function displayProjects(projects) {
   })
 }
 
-ScrollSmoother.create({
+const smoother = ScrollSmoother.create({
   smooth: 1.5,
   effects: true,
   smoothTouch: 0.1,
 });
+
 
 let mm = gsap.matchMedia();
 
@@ -224,3 +225,20 @@ closeNav.addEventListener("click", () => {
   });
   document.body.style.overflow = "auto";
 });
+
+// Ajout du gestionnaire pour le lien "Retour en haut"
+const backToTopLink = document.querySelector(".footer__back-top");
+if (backToTopLink) {
+  backToTopLink.addEventListener("click", (e) => {
+    e.preventDefault(); // Empêche le comportement de l'ancre par défaut
+    if (smoother) {
+      smoother.scrollTo(0, true); // Utilise ScrollSmoother pour défiler vers #hero
+    } else {
+      // Fallback si ScrollSmoother n'est pas initialisé
+      const heroElement = document.getElementById('hero');
+      if (heroElement) {
+        heroElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+}
