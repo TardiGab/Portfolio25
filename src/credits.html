@@ -18,12 +18,12 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="nav">
+  <header class="header header--credits">
+    <nav class="nav nav--shown">
       <div class="nav__container">
         <ul class="nav__ul">
-          <li><a href="#work">Portfolio</a></li>
-          <li><a href="#about">À propos</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">À propos</a></li>
           <li><a href="#" class="nav__contact">Contact</a></li>
         </ul>
         <span class="nav__container--left">Gabriel Manciu</span>
@@ -39,31 +39,11 @@
       <button class="nav__mobile-close"></button>
     </div>
   </header>
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <main class="main">
-        <section class="hero" id="hero">
-          <div class="hero__container">
-            <h1 class="hero__h1">Gabriel Manciu</h1>
-            <span class="hero__span">étudiant en web design</span>
-          </div>
-        </section>
-        <section class="work" id="work">
-          <div class="work__container">
-            <h2 class="work__h2">Portfolio</h2>
-            <div class="work__cards"></div>
-          </div>
-        </section>
-        <section class="about" id="about">
-          <div class="about__container">
-            <div class="about__img">
-              <img src="./assets/images/gabriel-manciu.webp" alt="Un homme blond, en t-shirt blanc, avec des plantes en arrière-plan">
-            </div>
-            <div class="about__desc">
-              <p>Je suis étudiant en design et développement web à la Haute-École Albert Jacquard, basé dans la province de Namur.</p>
-              <p>Grâce à ma formation, j’ai pu faire mes marques sur les bases du développement web - HTML, (S)CSS, JS - mais également à l’utilisation de librairies telles de GSAP afin de produire de fluides animations transformant la visite d’un site web en une expérience unique.</p>
-            </div>
-          </div>
+      <main class="credits">
+        <h1 class="credits__h1">Crédits</h1>
+        <section class="credits__font">
+          <h2 class="credits__h2">Police utilisée</h2>
+          <p class="credits__text">La police utilisée sur ce site est <a href="https://fonts.google.com/specimen/Lexend" target="_blank">Lexend</a>, une font variable sans serif et moderne.</p>
         </section>
       </main>
       <footer class="footer">
@@ -76,7 +56,7 @@
               <div class="footer__right--top">
                 <div>
                   <span>Namur, Belgique</span>
-                  <a href="credits.html" target="_blank">Crédits</a>
+                  <a href="credits.html">Crédits</a>
                 </div>
                 <a href="#hero" class="footer__back-top">Remonter</a>
               </div>
@@ -99,8 +79,5 @@
           <a href="mailto:contact@gabriel-manciu.be" class="footer__contact">Contact par mail</a>
         </div>
       </footer>
-    </div>
-  </div>
-
 </body>
 </html>

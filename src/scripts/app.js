@@ -3,8 +3,9 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
+import ScrollToPlugin from "gsap/ScrollToPlugin"; // Ajout du plugin manquant
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin); // Enregistrement du plugin
 
 fetch("../assets/data/projects.json")
   .then(response => response.json())
@@ -163,6 +164,7 @@ function initializeGsap() {
         duration: 2,
         borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
       })
+      .addLabel("workContainer")
       .fromTo(".work__card", {
         opacity: 0,
         delay: 2,
@@ -199,6 +201,73 @@ function initializeGsap() {
         height: "90dvh",
         borderRadius: "64px"
       })
+      .addLabel("aboutContainer")
+
+    const workLink = document.querySelector(".nav__ul li a[href='#work']");
+    const aboutLink = document.querySelector(".nav__ul li a[href='#about']");
+
+    if (workLink) {
+      workLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const scrollPosition = tl.scrollTrigger.labelToScroll("workContainer");
+        gsap.to(window, {
+          scrollTo: scrollPosition,
+          ease: "power2.inOut",
+          duration: 1.5,
+        });
+      });
+    }
+
+    if (aboutLink) {
+      aboutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const scrollPosition = tl.scrollTrigger.labelToScroll("aboutContainer");
+        gsap.to(window, {
+          scrollTo: scrollPosition,
+          ease: "power2.inOut",
+          duration: 1.5,
+        });
+      });
+    }
+
+    const mobileWorkLink = document.querySelector(".nav__mobile-ul li a[href='#work']");
+    const mobileAboutLink = document.querySelector(".nav__mobile-ul li a[href='#about']");
+
+    if (mobileWorkLink) {
+      mobileWorkLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const scrollPosition = tl.scrollTrigger.labelToScroll("workContainer");
+        gsap.to(window, {
+          scrollTo: scrollPosition,
+          ease: "power2.inOut",
+          duration: 1.5,
+        });
+        gsap.to(".nav__mobile", {
+          y: "-100%",
+          ease: "power2.inOut",
+          duration: .5,
+        });
+        document.body.style.overflow = "auto";
+      });
+    }
+
+    if (mobileAboutLink) {
+      mobileAboutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const scrollPosition = tl.scrollTrigger.labelToScroll("aboutContainer");
+        gsap.to(window, {
+          scrollTo: scrollPosition,
+          ease: "power2.inOut",
+          duration: 1.5,
+        });
+        gsap.to(".nav__mobile", {
+          y: "-100%",
+          ease: "power2.inOut",
+          duration: .5,
+        });
+        document.body.style.overflow = "auto";
+      });
+    }
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
     return () => {

@@ -4,6 +4,12 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  &--credits {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
 }
 
 * {
@@ -52,6 +58,20 @@ button {
     transform: translate(-50%, -50%) rotate(-167deg);
     padding: 1rem;
     border-radius: 4rem;
+  }
+
+  &--shown {
+    transform: translate(-50%, 1rem);
+    height: auto;
+    width: 25%;
+    background: rgba(11, 21, 48, 0.25);
+    top: 0;
+    border: 2px solid rgba(91, 106, 118, 0.5);
+
+    .nav__container {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
   }
 
   &__burger {
