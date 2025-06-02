@@ -91,7 +91,7 @@ function initializeGsap() {
         end: "bottom bottom",
         pin: true,
         pinSpacing: false,
-        scrub: 2,
+        scrub: 1,
       }
     });
 
@@ -155,13 +155,12 @@ function initializeGsap() {
       }, "<")
       .to(".work", {
         y: "-100vh",
-        duration: 2,
       }, "<")
       .to(".work__container", {
         width: isDesktop ? "90vw" : "100%",
         height: isDesktop ? "85vh" : "90dvh",
         ease: "power2.inOut",
-        duration: 4,
+        duration: 2,
         borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
       })
       .fromTo(".work__card", {
@@ -172,26 +171,33 @@ function initializeGsap() {
         opacity: 1,
         stagger: 0.1,
         ease: "power2.inOut",
+        duration: .5,
+      })
+      .to(works, {
+        xPercent: isMobile ? -105 * (works.length - 1) : -50 * (works.length - 1),
         duration: 2,
       })
-      .to(".work__cards", {
-        xPercent: isMobile ? -105 * (works.length - 1) : -28.57 * (works.length - 1), // 100% / nombre de cartes visibles
-        duration: 10,
+      .fromTo(".work__card", {
+        opacity: 1,
+        stagger: 0.1,
+      }, {
+        opacity: 0,
+        display: "none",
       })
       .to(".work", {
         xPercent: -100,
-        ease: "power2.inOut",
         duration: 2,
+        ease: "power2.inOut",
       })
       .to(".about", {
         y: "-200vh",
-        // ease: "power2.inOut",
+        ease: "power2.inOut",
         duration: 2,
-      })
+      }, "<")
       .to(".hero__container", {
         width: "90vw",
         height: "90dvh",
-        borderRadius: isDesktop ? "4rem" : "2rem",
+        borderRadius: "64px"
       })
 
     // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
