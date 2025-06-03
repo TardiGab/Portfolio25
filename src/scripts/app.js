@@ -9,6 +9,17 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
 const main = document.querySelector(".main");
 
+// Créer ScrollSmoother avec la bonne configuration
+let smoother;
+if (main) {
+  smoother = ScrollSmoother.create({
+    // wrapper: "#smooth-wrapper",
+    // content: "#smooth-content",
+    smooth: 1.5,
+    smoothTouch: 0.1,
+  });
+}
+
 fetch("../assets/data/projects.json")
   .then(response => response.json())
   .then(data => {
@@ -65,13 +76,6 @@ function displayProjects(projects) {
     cardLinksContainer.appendChild(cardLink);
     cardLinksContainer.appendChild(cardCaseStudy);
   })
-}
-
-if (main) {
-  ScrollSmoother.create({
-    smooth: 1.5,
-    smoothTouch: 0.1,
-  });
 }
 
 let mm = gsap.matchMedia();
@@ -212,11 +216,16 @@ function initializeGsap() {
       workLink.addEventListener("click", (e) => {
         e.preventDefault();
         const scrollPosition = tl.scrollTrigger.labelToScroll("workContainer");
-        gsap.to(window, {
-          scrollTo: scrollPosition,
-          ease: "power2.inOut",
-          duration: 1.5,
-        });
+
+        if (smoother) {
+          smoother.scrollTo(scrollPosition, true, "power2.inOut");
+        } else {
+          gsap.to(window, {
+            scrollTo: scrollPosition,
+            ease: "power2.inOut",
+            duration: 1.5,
+          });
+        }
       });
     }
 
@@ -224,14 +233,20 @@ function initializeGsap() {
       aboutLink.addEventListener("click", (e) => {
         e.preventDefault();
         const scrollPosition = tl.scrollTrigger.labelToScroll("aboutContainer");
-        gsap.to(window, {
-          scrollTo: scrollPosition,
-          ease: "power2.inOut",
-          duration: 1.5,
-        });
+
+        if (smoother) {
+          smoother.scrollTo(scrollPosition, true, "power2.inOut");
+        } else {
+          gsap.to(window, {
+            scrollTo: scrollPosition,
+            ease: "power2.inOut",
+            duration: 1.5,
+          });
+        }
       });
     }
 
+    // Menu mobile corrigé
     const mobileWorkLink = document.querySelector(".nav__mobile-ul li a[href='#work']");
     const mobileAboutLink = document.querySelector(".nav__mobile-ul li a[href='#about']");
 
@@ -239,11 +254,18 @@ function initializeGsap() {
       mobileWorkLink.addEventListener("click", (e) => {
         e.preventDefault();
         const scrollPosition = tl.scrollTrigger.labelToScroll("workContainer");
-        gsap.to(window, {
-          scrollTo: scrollPosition,
-          ease: "power2.inOut",
-          duration: 1.5,
-        });
+
+        if (smoother) {
+          smoother.scrollTo(scrollPosition, true, "power2.inOut");
+        } else {
+          gsap.to(window, {
+            scrollTo: scrollPosition,
+            ease: "power2.inOut",
+            duration: 1.5,
+          });
+        }
+
+        // Fermer le menu mobile
         gsap.to(".nav__mobile", {
           y: "-100%",
           ease: "power2.inOut",
@@ -257,11 +279,18 @@ function initializeGsap() {
       mobileAboutLink.addEventListener("click", (e) => {
         e.preventDefault();
         const scrollPosition = tl.scrollTrigger.labelToScroll("aboutContainer");
-        gsap.to(window, {
-          scrollTo: scrollPosition,
-          ease: "power2.inOut",
-          duration: 1.5,
-        });
+
+        if (smoother) {
+          smoother.scrollTo(scrollPosition, true, "power2.inOut");
+        } else {
+          gsap.to(window, {
+            scrollTo: scrollPosition,
+            ease: "power2.inOut",
+            duration: 1.5,
+          });
+        }
+
+        // Fermer le menu mobile
         gsap.to(".nav__mobile", {
           y: "-100%",
           ease: "power2.inOut",
@@ -297,14 +326,18 @@ closeNav.addEventListener("click", () => {
 // Utilisation de Github Copilot car l'ancre de retour en haut n'était pas fonctionnelle
 //  Prompt : "Mon ancre de retour en haut ne fonctionne pas, comment régler ça ?"
 const backToTopLink = document.querySelector(".footer__back-top");
-if (backToTopLink && main) {
-  const smoother = ScrollSmoother.create({
-    smooth: 1.5,
-    smoothTouch: 0.1,
-  });
+if (backToTopLink) {
   backToTopLink.addEventListener("click", (e) => {
     e.preventDefault();
-    smoother.scrollTo(0, true);
+    if (smoother) {
+      smoother.scrollTo(0, true);
+    } else {
+      gsap.to(window, {
+        scrollTo: 0,
+        ease: "power2.inOut",
+        duration: 1.5,
+      });
+    }
   });
 }
 
