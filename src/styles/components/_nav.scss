@@ -4,6 +4,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 999;
 
   &--credits {
     width: auto;
@@ -67,6 +68,23 @@ button {
     background: rgba(11, 21, 48, 0.25);
     top: 0;
     border: 2px solid rgba(91, 106, 118, 0.5);
+    position: fixed;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      border-radius: 0;
+      padding: 1rem;
+    }
+
+    // tablet
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      width: 50%;
+    }
 
     .nav__container {
       opacity: 1;

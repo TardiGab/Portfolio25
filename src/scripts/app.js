@@ -3,19 +3,18 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
-import ScrollToPlugin from "gsap/ScrollToPlugin"; // Ajout du plugin manquant
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin); // Enregistrement du plugin
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+
+const main = document.querySelector(".main");
 
 fetch("../assets/data/projects.json")
   .then(response => response.json())
   .then(data => {
-    if (data.projects) {
+    if (data.projects && main) {
       displayProjects(data.projects);
-      // Initialisation de GSAP et ScrollTrigger après le chargement des projets
       initializeGsap();
-    } else {
-      console.error("Error: 'projects' array not found in data", data);
     }
   })
   .catch(error => console.error("Error loading projects:", error));
@@ -68,11 +67,12 @@ function displayProjects(projects) {
   })
 }
 
-const smoother = ScrollSmoother.create({
-  smooth: 1.5,
-  smoothTouch: 0.1,
-});
-
+if (main) {
+  ScrollSmoother.create({
+    smooth: 1.5,
+    smoothTouch: 0.1,
+  });
+}
 
 let mm = gsap.matchMedia();
 
@@ -203,6 +203,8 @@ function initializeGsap() {
       })
       .addLabel("aboutContainer")
 
+
+    // Utilisation de Github Copilot pour l'implémentation des liens de navigation. Je me suis renseigné en amont sur la manière de faire défiler la page vers une section spécifique de ma timeline. J'ai vu qu'il suffisait d'utiliser des labels et la méthode `labelToScroll` de ScrollTrigger. Cependant, lorsque j'utilisais cette méthode, la page ne défilait pas. En fait, j'avais oublié d'importer le plugin `ScrollToPlugin` de GSAP. Une erreur d'inattention de ma part.
     const workLink = document.querySelector(".nav__ul li a[href='#work']");
     const aboutLink = document.querySelector(".nav__ul li a[href='#about']");
 
@@ -268,11 +270,6 @@ function initializeGsap() {
         document.body.style.overflow = "auto";
       });
     }
-
-    // Fonction de nettoyage : sera appelée lorsque la condition de media query ne correspond plus
-    return () => {
-      tl.kill();
-    };
   });
 }
 
@@ -298,10 +295,37 @@ closeNav.addEventListener("click", () => {
 
 
 // Utilisation de Github Copilot car l'ancre de retour en haut n'était pas fonctionnelle
+//  Prompt : "Mon ancre de retour en haut ne fonctionne pas, comment régler ça ?"
 const backToTopLink = document.querySelector(".footer__back-top");
-if (backToTopLink) {
+if (backToTopLink && main) {
+  const smoother = ScrollSmoother.create({
+    smooth: 1.5,
+    smoothTouch: 0.1,
+  });
   backToTopLink.addEventListener("click", (e) => {
     e.preventDefault();
     smoother.scrollTo(0, true);
+  });
+}
+
+const creditsPage = document.querySelector(".credits");
+if (creditsPage) {
+  mm.add({
+    isDesktop: "(min-width: 1025px)",
+    isMobile: "(max-width: 768px)",
+  }, (context) => {
+    const { isDesktop, isMobile } = context.conditions;
+    gsap.to(".credits__background", {
+      scrollTrigger: {
+        trigger: creditsPage,
+        start: "top top",
+        end: "+=100%",
+        scrub: 1,
+        pin: isMobile ? false : true,
+      },
+      width: isDesktop ? "90vw" : "100%",
+      height: isDesktop ? "90dvh" : "100dvh",
+      borderRadius: isDesktop ? "64px" : "0",
+    })
   });
 }
