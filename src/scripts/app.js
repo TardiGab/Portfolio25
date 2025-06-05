@@ -11,14 +11,10 @@ const main = document.querySelector(".main");
 
 // Créer ScrollSmoother avec la bonne configuration
 let smoother;
-if (main) {
-  smoother = ScrollSmoother.create({
-    // wrapper: "#smooth-wrapper",
-    // content: "#smooth-content",
-    smooth: 1.5,
-    smoothTouch: 0.1,
-  });
-}
+smoother = ScrollSmoother.create({
+  smooth: 1.5,
+  smoothTouch: 0.1,
+});
 
 fetch("../assets/data/projects.json")
   .then(response => response.json())
@@ -69,6 +65,7 @@ function displayProjects(projects) {
     cardLink.target = "_blank";
     cardLink.textContent = "Site en ligne";
     cardCaseStudy.href = project.caseStudyUrl;
+    cardCaseStudy.target = "_blank";
     if (!project.caseStudyUrl) {
       cardCaseStudy.style.display = "none";
     }
@@ -351,6 +348,28 @@ if (creditsPage) {
     gsap.to(".credits__background", {
       scrollTrigger: {
         trigger: creditsPage,
+        start: "top top",
+        end: "+=100%",
+        scrub: 1,
+        pin: isMobile ? false : true,
+      },
+      width: isDesktop ? "90vw" : "100%",
+      height: isDesktop ? "90dvh" : "100dvh",
+      borderRadius: isDesktop ? "64px" : "0",
+    })
+  });
+}
+
+const caseStudyPage = document.querySelector(".case");
+if (caseStudyPage) {
+  mm.add({
+    isDesktop: "(min-width: 1025px)",
+    isMobile: "(max-width: 768px)",
+  }, (context) => {
+    const { isDesktop, isMobile } = context.conditions;
+    gsap.to(".case__hero-container", {
+      scrollTrigger: {
+        trigger: caseStudyPage,
         start: "top top",
         end: "+=100%",
         scrub: 1,

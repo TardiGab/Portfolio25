@@ -1,0 +1,112 @@
+.case {
+  &__hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+  }
+
+  &__h1 {
+    font-size: $h2-size;
+    color: $text-color;
+    margin: 0;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: .9;
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      font-size: $h1-size;
+      margin-top: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+    gap: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+    &--small {
+      flex-direction: row;
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-glass {
+      flex: 1;
+      @include glass-container;
+
+      img {
+        width: 100%;
+        border-radius: 2rem;
+        object-fit: contain;
+
+        @media screen and (max-width: 768px) {
+          border-radius: 1rem;
+
+        }
+      }
+    }
+
+    &-h2 {
+      font-size: $h2-size;
+      margin: 0;
+      margin-bottom: 3rem;
+    }
+
+    &-p {
+      font-size: $p-size;
+      line-height: 1.5;
+    }
+
+    &-top,
+    &-bottom {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      div {
+        width: 50%;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      img {
+        width: 50%;
+        height: auto;
+        border-radius: 2rem;
+        aspect-ratio: 16 / 9;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          border-radius: 1rem;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+}

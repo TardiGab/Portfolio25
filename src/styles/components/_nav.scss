@@ -193,6 +193,10 @@ button {
           text-decoration: none;
           color: $text-color;
           font-size: $h1-size;
+          width: 100%;
+          text-align: center;
+          display: inline-block;
+          line-height: 100%;
         }
       }
     }
@@ -271,6 +275,11 @@ button {
     align-self: center;
     opacity: 1;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      padding: 1rem 2rem;
+
+    }
 
     &:hover {
       background: #1f397f;
