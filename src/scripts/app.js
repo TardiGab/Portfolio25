@@ -11,8 +11,6 @@ const main = document.querySelector(".main");
 
 // Créer ScrollSmoother avec la bonne configuration
 let smoother;
-// if (main) {
-// }
 smoother = ScrollSmoother.create({
   smooth: 1.5,
   smoothTouch: 0.1,
