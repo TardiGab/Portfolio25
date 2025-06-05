@@ -361,3 +361,25 @@ if (creditsPage) {
     })
   });
 }
+
+const caseStudyPage = document.querySelector(".case");
+if (caseStudyPage) {
+  mm.add({
+    isDesktop: "(min-width: 1025px)",
+    isMobile: "(max-width: 768px)",
+  }, (context) => {
+    const { isDesktop, isMobile } = context.conditions;
+    gsap.to(".case__hero-container", {
+      scrollTrigger: {
+        trigger: caseStudyPage,
+        start: "top top",
+        end: "+=100%",
+        scrub: 1,
+        pin: isMobile ? false : true,
+      },
+      width: isDesktop ? "90vw" : "100%",
+      height: isDesktop ? "90dvh" : "100dvh",
+      borderRadius: isDesktop ? "64px" : "0",
+    })
+  });
+}
