@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix
   .copy('src/**/*.html', 'dist/')
   .copyDirectory('src/assets', 'dist/assets')
+  .copyDirectory('src/case', 'dist/case')
   .js('src/scripts/app.js', 'dist/scripts/')
   .sass('src/styles/app.scss', 'styles/', { sassOptions: { outputStyle: 'expanded' } })
   .options({
