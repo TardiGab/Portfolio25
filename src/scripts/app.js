@@ -16,7 +16,7 @@ smoother = ScrollSmoother.create({
   smoothTouch: 0.1,
 });
 
-fetch("../assets/data/projects.json")
+fetch("/assets/data/projects.json")
   .then(response => response.json())
   .then(data => {
     if (data.projects && main) {
