@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   z-index: 999;
+  pointer-events: none;
 
   &--credits {
     width: auto;
@@ -52,6 +53,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%) rotate(-167deg);
   z-index: 1000;
+  pointer-events: all;
 
   @media screen and (max-width: 768px) {
     width: 50%;

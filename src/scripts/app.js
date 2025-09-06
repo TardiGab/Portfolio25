@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 const main = document.querySelector(".main");
 
 // Créer ScrollSmoother avec la bonne configuration
-let smoother;
-smoother = ScrollSmoother.create({
-  smooth: 1.5,
-  smoothTouch: 0.1,
-});
+// let smoother;
+// smoother = ScrollSmoother.create({
+//   smooth: 1.5,
+//   smoothTouch: 0.1,
+// });
 
 fetch("/assets/data/projects.json")
   .then(response => response.json())
