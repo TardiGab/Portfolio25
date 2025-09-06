@@ -110,6 +110,11 @@ function initializeGsap() {
       .from(".hero__span", {
         opacity: 0,
         filter: "blur(10px)",
+      }, "<")
+      .from(".hero__span--down", {
+        opacity: 0,
+        filter: "blur(10px)",
+        duration: 1,
       }, "<");
 
     tl.to(".hero__container", {
