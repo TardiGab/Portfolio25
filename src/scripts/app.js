@@ -86,6 +86,8 @@ function initializeGsap() {
   }, (context) => {
     const { isDesktop, isMobile, isTablet } = context.conditions;
 
+    const loadingTl = gsap.timeline();
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".main",
@@ -96,6 +98,19 @@ function initializeGsap() {
         scrub: 1,
       }
     });
+
+    loadingTl.from(".hero__container", {
+      background: "radial-gradient(75% 25% at 50% 100%, #000000ff 0%, rgba(0, 0, 0, 1%) 100%)",
+      duration: 1.5,
+    })
+      .from(".hero__h1", {
+        opacity: 0,
+        filter: "blur(10px)",
+      }, "<")
+      .from(".hero__span", {
+        opacity: 0,
+        filter: "blur(10px)",
+      }, "<");
 
     tl.to(".hero__container", {
       width: "100%",

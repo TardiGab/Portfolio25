@@ -47,6 +47,20 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: $p-size;
+
+    &--down {
+      font-size: $nav-size;
+      opacity: 0.5;
+      font-weight: 300;
+      color: $text-color;
+      position: absolute;
+      bottom: 2rem;
+      right: 5%;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 }
 
