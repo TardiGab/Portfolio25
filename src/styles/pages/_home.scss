@@ -4,6 +4,27 @@
   box-sizing: border-box;
 }
 
+.main {
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      width: 90vw;
+      height: 90dvh;
+      background: radial-gradient(75% 25% at 50% 100%, #082078 0%, hsl(224, 65%, 5%) 100%);
+      border-radius: 64px;
+    }
+  }
+}
+
 .hero {
   height: 100vh;
   display: flex;
@@ -16,15 +37,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90dvh;
-    width: 90vw;
-    background: radial-gradient(75% 25% at 50% 100%, #082078 0%, hsl(224, 65%, 5%) 100%);
-    border-radius: 64px;
+    height: 100%;
+    width: 100%;
+    // background: radial-gradient(75% 25% at 50% 100%, #082078 0%, hsl(224, 65%, 5%) 100%);
+    // border-radius: 64px;
 
     @media screen and (max-width: 768px) {
       width: 100vw;
       height: 100vh;
-      border-radius: 0;
+      // border-radius: 0;
     }
   }
 

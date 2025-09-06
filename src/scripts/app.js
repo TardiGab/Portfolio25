@@ -91,19 +91,19 @@ function initializeGsap() {
         trigger: ".main",
         start: "top top",
         end: "bottom bottom",
-        pin: true,
+        // pin: true,
         pinSpacing: false,
         scrub: 1,
       }
     });
 
-    tl.to(".hero__container", {
+    tl.to(".main__bg div", {
       width: "100%",
-      height: "100vh",
+      height: "100%",
       marginTop: 0,
       borderRadius: 0,
       ease: "power2.inOut",
-      position: "fixed",
+      // position: "fixed",
     }, 0);
 
     let navWidth;
@@ -155,9 +155,9 @@ function initializeGsap() {
         duration: 1,
         ease: "power2.inOut",
       }, "<")
-      .to(".work", {
-        y: "-100vh",
-      }, "<")
+      // .to(".work", {
+      //   y: "-100vh",
+      // }, "<")
       .to(".work__container", {
         width: isDesktop ? "90vw" : "100%",
         height: isDesktop ? "85vh" : "90dvh",
@@ -192,11 +192,11 @@ function initializeGsap() {
         duration: 2,
         ease: "power2.inOut",
       })
-      .to(".about", {
-        y: "-200vh",
-        ease: "power2.inOut",
-        duration: 2,
-      }, "<")
+      // .to(".about", {
+      //   y: "-200vh",
+      //   ease: "power2.inOut",
+      //   duration: 2,
+      // }, "<")
       .to(".hero__container", {
         width: "90vw",
         height: "90dvh",
