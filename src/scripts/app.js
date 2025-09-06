@@ -149,6 +149,13 @@ function initializeGsap() {
       opacity: 0,
       duration: 1,
       ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: ".hero__container",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        markers: true,
+      }
     })
       .to(".hero__span", {
         opacity: 0,
