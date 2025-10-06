@@ -91,7 +91,7 @@ function initializeGsap() {
         trigger: ".main",
         start: "top top",
         end: "bottom bottom",
-        // pin: true,
+        pin: true,
         pinSpacing: false,
         scrub: 1,
       }
@@ -103,7 +103,6 @@ function initializeGsap() {
       marginTop: 0,
       borderRadius: 0,
       ease: "power2.inOut",
-      // position: "fixed",
     }, 0);
 
     let navWidth;
@@ -154,7 +153,6 @@ function initializeGsap() {
         start: "top top",
         end: "bottom top",
         pin: true,
-        markers: true,
       }
     })
       .to(".hero__span", {
@@ -162,55 +160,77 @@ function initializeGsap() {
         duration: 1,
         ease: "power2.inOut",
       }, "<")
-      // .to(".work", {
-      //   y: "-100vh",
-      // }, "<")
-      .to(".work__container", {
-        width: isDesktop ? "90vw" : "100%",
-        height: isDesktop ? "85vh" : "90dvh",
-        ease: "power2.inOut",
-        duration: 2,
-        borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
-      })
-      .addLabel("workContainer")
-      .fromTo(".work__card", {
-        opacity: 0,
-        delay: 2,
-      }, {
-        display: "flex",
-        opacity: 1,
-        stagger: 0.1,
-        ease: "power2.inOut",
-        duration: .5,
-      })
-      .to(works, {
-        xPercent: isMobile ? -105 * (works.length - 1) : -50 * (works.length - 1),
-        duration: 2,
-      })
-      .fromTo(".work__card", {
-        opacity: 1,
-        stagger: 0.1,
-      }, {
-        opacity: 0,
-        display: "none",
-      })
       .to(".work", {
-        xPercent: -100,
-        duration: 2,
-        ease: "power2.inOut",
-      })
+        y: "-100vh",
+      }, "<")
+      // .to(".work__container", {
+      //   width: isDesktop ? "90vw" : "100%",
+      //   height: isDesktop ? "85vh" : "auto",
+      //   ease: "power2.inOut",
+      //   duration: 2,
+      //   borderRadius: isDesktop ? "4rem" : "2rem 2rem 0 0",
+      //   // scrollTrigger: {
+      //   //   trigger: ".work",
+      //   //   start: "top top",
+      //   //   end: "bottom top",
+      //   //   pin: true,
+      //   //   markers: true,
+      //   // }
+      // })
+      .addLabel("workContainer")
+      // .fromTo(".work__card", {
+      //   display: "none",
+      //   opacity: 0,
+      //   // delay: 2,
+      // }, {
+      //   display: "flex",
+      //   opacity: 1,
+      //   stagger: 0.1,
+      //   ease: "power2.inOut",
+      //   duration: .5,
+      // })
+      // .to(works, {
+      //   xPercent: isMobile ? -105 * (works.length - 1) : -50 * (works.length - 1),
+      //   duration: 2,
+      // })
+      // .fromTo(".work__card", {
+      //   opacity: 1,
+      //   stagger: 0.1,
+      // }, {
+      //   opacity: 0,
+      //   display: "none",
+      // })
+      // .to(".work", {
+      //   xPercent: isDesktop ? -100 : 0,
+      //   duration: 2,
+      //   ease: "power2.inOut",
+      // })
       // .to(".about", {
       //   y: "-200vh",
       //   ease: "power2.inOut",
       //   duration: 2,
       // }, "<")
-      .to(".hero__container", {
-        width: "90vw",
-        height: "90dvh",
-        borderRadius: "64px"
-      })
+      // .to(".hero__container", {
+      //   width: "90vw",
+      //   height: "90dvh",
+      //   borderRadius: "64px"
+      // })
+      // .to(".main__bg", {
+      //   position: "relative",
+      // })
+      // .to(".main__bg div", {
+      //   width: "90vw",
+      //   height: "90dvh",
+      //   borderRadius: "64px",
+      //   duration: 2,
+      //   // scrollTrigger: {
+      //   //   trigger: ".main",
+      //   //   start: "top top",
+      //   //   end: "bottom bottom",
+      //   //   pin: false
+      //   // }
+      // }, "<")
       .addLabel("aboutContainer")
-
 
     // Utilisation de Github Copilot pour l'implémentation des liens de navigation. Je me suis renseigné en amont sur la manière de faire défiler la page vers une section spécifique de ma timeline. J'ai vu qu'il suffisait d'utiliser des labels et la méthode `labelToScroll` de ScrollTrigger. Cependant, lorsque j'utilisais cette méthode, la page ne défilait pas. En fait, j'avais oublié d'importer le plugin `ScrollToPlugin` de GSAP. Une erreur d'inattention de ma part.
     const workLink = document.querySelector(".nav__ul li a[href='#work']");
