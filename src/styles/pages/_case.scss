@@ -53,6 +53,9 @@
     &-glass {
       flex: 1;
       @include glass-container;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
 
       img {
         width: 100%;
@@ -75,6 +78,16 @@
     &-p {
       font-size: $p-size;
       line-height: 1.5;
+
+      a {
+        color: $text-color;
+        text-decoration: underline;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
     }
 
     &-top,
@@ -97,9 +110,32 @@
 
       img {
         width: 50%;
-        height: auto;
+        height: 100%;
         border-radius: 2rem;
-        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        margin: auto;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          border-radius: 1rem;
+          object-fit: fill;
+        }
+      }
+    }
+
+    &-img-wrapper {
+      display: flex;
+      gap: 2rem;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      img {
+        width: 50%;
+        height: 100%;
+        border-radius: 2rem;
+        object-fit: contain;
 
         @media screen and (max-width: 768px) {
           width: 100%;

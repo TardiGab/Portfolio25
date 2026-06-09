@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "name": "Reins",
+      "releaseYear": "2026",
+      "imageUrl": "assets/images/reins.webp",
+      "siteUrl": "https://reins.manciu.be",
+      "caseStudyUrl": "case/reins.html"
+    },
+    {
       "name": "Design Fiction",
       "releaseYear": "2025",
       "imageUrl": "assets/images/design-fiction.webp",
